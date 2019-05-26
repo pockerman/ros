@@ -1,0 +1,11 @@
+# the goal
+uint32 motor_id
+uint32 motor_speed
+---
+
+# the result
+uint32 started
+---
+
+# feedback message
+string feedback_msg
