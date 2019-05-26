@@ -32,6 +32,3 @@ A collection of notes presenting various topics on <a href="http://www.ros.org/"
 
 
 **Enjoy!**
-
-The UpperFrameworks team.
-
