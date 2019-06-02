@@ -59,7 +59,7 @@ string msg
 
 ``` 
 
-Based on this ```.action``` file,  overall 6 messages have to be generated in order for the client and server to communicate. 
+Based on this ```.action``` file,   messages have to be generated in order for the client and server to communicate. 
 This generation can be automatically triggered during the make process [1]. Let's see how 
 
 Create a new package and name it ```ros_services```:
@@ -197,7 +197,7 @@ catkin_make
 
 
 The process above will create some header files for us. 
-Concretely, navigate to ```catkin_ws/devel/include/ros_actions/``` and you will see that there are sevel header files create for us.
+Concretely, navigate to ```catkin_ws/devel/include/ros_actions/``` and you will see that there are seven header files create for us.
 These are the headers we need to use in our application.
 
 
