@@ -59,8 +59,7 @@ string msg
 
 ``` 
 
-Based on this ```.action``` file, 
-overall 6 messages have to be generated in order for the client and server to communicate. 
+Based on this ```.action``` file,  overall 6 messages have to be generated in order for the client and server to communicate. 
 This generation can be automatically triggered during the make process [1]. Let's see how 
 
 Create a new package and name it ```ros_services```:
@@ -102,13 +101,131 @@ We also need to update our ```package.xml``` file for our new package. Edit the 
 Next, we need to make a few changes to the ```CMakeLists.txt``` file of our package. 
 
 
-With all of this information in place, running catkin_make in the top level of our
-catkin workspace does quite a bit of extra work for us. Our Timer.action file is pro‐
-cessed to produce several message-definition files: TimerAction.msg, TimerAction‐
-Feedback.msg, TimerActionGoal.msg, TimerActionResult.msg, TimerFeedback.msg,
-TimerGoal.msg, and TimerResult.msg. These messages are used to implement the
-action client/server protocol, which, as mentioned previously, is built on top of ROS
-topics. The generated message definitions are in turn processed by the message gen‐
-erator to produce corresponding class definitions. Most of the time, you’ll use only a
-few of those classes, as you’ll see in the following examples.
+- Add the actions files
+
+```
+## Generate actions in the 'action' folder
+add_action_files(
+   FILES 
+	 StartMotor.action
+)
+
+```
+
+- Generate the action messages
+
+```
+
+generate_messages(
+   DEPENDENCIES
+   actionlib_msgs   std_msgs
+ )
+
+catkin_package(
+
+)
+
+
+include_directories(
+# include
+  ${catkin_INCLUDE_DIRS}
+)
+
+```
+
+- Add the executable names and link
+
+```
+add_executable(${PROJECT_NAME}_client_node src/action_client/node_1.cpp)
+add_executable(${PROJECT_NAME}_server_node src/action_server/node_2.cpp)
+target_link_libraries(${PROJECT_NAME}_client_node ${catkin_LIBRARIES} )
+target_link_libraries(${PROJECT_NAME}_server_node ${catkin_LIBRARIES})
+```
+
+Overall our ```CMakeLists.txt``` file when stripped off comments should look like the following:
+
+```
+cmake_minimum_required(VERSION 2.8.3)
+project(ros_actions)
+
+add_compile_options(-std=c++11)
+
+find_package(catkin REQUIRED COMPONENTS
+  actionlib
+  actionlib_msgs
+  message_generation
+  roscpp
+  rospy
+  std_msgs
+)
+
+add_action_files(
+   FILES 
+	 StartMotor.action
+)
+
+generate_messages(
+   DEPENDENCIES
+   actionlib_msgs   std_msgs
+ )
+
+catkin_package(
+)
+
+
+include_directories(
+# include
+  ${catkin_INCLUDE_DIRS}
+)
+
+add_executable(${PROJECT_NAME}_client_node src/action_client/node_1.cpp)
+add_executable(${PROJECT_NAME}_server_node src/action_server/node_2.cpp)
+target_link_libraries(${PROJECT_NAME}_client_node ${catkin_LIBRARIES} )
+target_link_libraries(${PROJECT_NAME}_server_node ${catkin_LIBRARIES})
+
+```
+
+### Build 
+
+Now that we have everything set, we nee to build the our package
+
+```
+cd catkin_ws
+catkin_make
+```
+
+
+The process above will create some header files for us. 
+Concretely, navigate to ```catkin_ws/devel/include/ros_actions/``` and you will see that there are sevel header files create for us.
+These are the headers we need to use in our application.
+
+
+
+### Run 
+
+Start the master node
+
+```
+roscore
+``` 
+
+Open a new terminal and type
+
+```
+rosrun ros_actions ros_actions_client_node 
+```
+
+Similarly for the server node.
+
+
+---
+**REMARK**
+
+Make sure that the termoinals that execute the two nodes that you executed
+
+```
+source /path/to/your/catkin_ws/devel/setup.sh
+```
+
+---
 
