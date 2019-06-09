@@ -43,7 +43,7 @@ sudo apt update
 - Desktop-Full Installation
 
 ```
-sudo apt install ros-melodic-desktop-full
+sudo apt install ros-<YOUR_ROS_DIST>-desktop-full
 ```
 
 Before you can use ROS, you will need to initialize ```rosdep```. ```rosdep``` enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.
