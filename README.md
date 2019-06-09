@@ -4,7 +4,7 @@ A collection of notes presenting various topics on <a href="http://www.ros.org/"
 
 ## Contents
 
-- **Item:** <a href="ros_installation.md">ROS Installation</a>
+- **Item:** <a href="ros_install.md">ROS Installation</a>
 - **Item:** <a href="ros_introduction.md">ROS Introduction</a>
 - **Item:** <a href="ros_create_workspace.md">ROS ```workspaces```, ```packages``` and ```catkin```</a>
 - **Item:** <a href="ros_hello.md">Hello ROS</a>
@@ -12,7 +12,7 @@ A collection of notes presenting various topics on <a href="http://www.ros.org/"
 - **Item:** <a href="ros_services.md">ROS Services</a>
 - **Item:** <a href="ros_actions.md">ROS Actions</a>
 - **Item:** <a href="#">SLAM in ROS</a>
-- **Item:** <a href="#">Vision Sensors in ROS</a>
+- **Item:** <a href="ros_vision_sensors.md">Vision Sensors in ROS</a>
 
 ## Books
 
