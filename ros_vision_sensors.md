@@ -7,6 +7,7 @@
 3. **```usb_cam```:** http://wiki.ros.org/usb_cam
 4. **vision_opencv:** http://wiki.ros.org/vision_opencv
 5. **image_transport:** http://wiki.ros.org/image_transport
+6. **Writing a Simple Image Publisher (C++):** http://wiki.ros.org/image_transport/Tutorials/PublishingImages
 
 ---
 
