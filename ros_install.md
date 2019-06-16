@@ -43,7 +43,7 @@ sudo apt update
 - Desktop-Full Installation
 
 ```
-sudo apt install ros-melodic-desktop-full
+sudo apt install ros-<YOUR_ROS_DIST>-desktop-full
 ```
 
 Before you can use ROS, you will need to initialize ```rosdep```. ```rosdep``` enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.
@@ -59,7 +59,7 @@ It's convenient if the ROS environment variables are automatically added to your
 
 ```
 
-echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/<YOUR_ROS_DIST>/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 ```
@@ -86,7 +86,7 @@ A possible output may be
 
 ```
 ROS_ROOT=/opt/ros/<YOUR_ROS_DIST>/share/ros
-ROS_PACKAGE_PATH=/opt/ros/kinetic/share
+ROS_PACKAGE_PATH=/opt/ros/<YOUR_ROS_DIST>/share
 ROS_MASTER_URI=http://localhost:11311
 ROSLISP_PACKAGE_DIRECTORIES=
 ROS_DISTRO=<YOUR_ROS_DIST>
@@ -120,19 +120,19 @@ $ cd ~/ros_catkin_ws
 4.  Fetch the core packages
 
 ```
-rosinstall_generator desktop_full --rosdistro melodic --deps --tar > melodic-desktop-full.rosinstall
+rosinstall_generator desktop_full --rosdistro <YOUR_ROS_DIST> --deps --tar > <YOUR_ROS_DIST>-desktop-full.rosinstall
 ```
 
 5. Install core packages with ```wstool```
 
 ```
-wstool init -j8 src melodic-desktop-full.rosinstall
+wstool init -j8 src <YOUR_ROS_DIST>-desktop-full.rosinstall
 ```
 
 6. Resolve dependencies
 
 ```
-rosdep install --from-paths src --ignore-src --rosdistro melodic -y
+rosdep install --from-paths src --ignore-src --rosdistro <YOUR_ROS_DIST> -y
 ```
 
 7. Build the ```catkin``` workspace
