@@ -11,8 +11,10 @@ A collection of notes presenting various topics on <a href="http://www.ros.org/"
 - **Item:** <a href="ros_messages.md">ROS Messages</a>
 - **Item:** <a href="ros_services.md">ROS Services</a>
 - **Item:** <a href="ros_actions.md">ROS Actions</a>
+- **Item:** <a href="ros_parameter_server.md">ROS Parameter Server</a>
 - **Item:** <a href="#">SLAM in ROS</a>
 - **Item:** <a href="ros_vision_sensors.md">Vision Sensors in ROS</a>
+- **Item:** <a href="ros_urdf.md">ROS URDF</a>
 
 ## Books
 
